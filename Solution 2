@@ -1,0 +1,14 @@
+<?php
+	function rotate(&$nums, $k) {
+    $k = $k % count($nums); //calculate $k modulo the length of the array to handle cases where $k is larger than the array length
+    for ($i = 0; $i < $k; $i++) { // this loop will execute $k times and rotate the array to the right by $k steps. 
+        array_unshift($nums, array_pop($nums)); //takes the last element of the array and inserts it at the beginning, rotates the array to the right by one step.
+    }
+}
+
+
+$nums = [-1,-100,3,99];
+$k = 2;
+rotate($nums, $k);
+print_r($nums);
+?>
