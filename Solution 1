@@ -1,0 +1,15 @@
+<?php
+function rotate($arr, $k) { //$arr= rotate $k= number of steps to rotate
+    $n = count($arr);
+    $k = $k % $n; //calculate k with modulo to ensure k is non negative and less than array length
+    $left = array_slice($arr, -$k, $k); // contains the elements that will be moved to the beginning of the rotated array
+    $right = array_slice($arr, 0, $n - $k); //contains the elements that will be moved to the end of the rotated array.
+    return array_merge($left, $right); //combined left and right to create the final rotate array 
+}
+
+// Example usage:
+$arr = array(1,2,3,4,5,6,7);
+$k = 3;
+$result = rotate($arr, $k);
+print_r($result);
+?>
